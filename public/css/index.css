@@ -1,0 +1,65 @@
+body {
+  background-image: url(/images/background.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+ul {
+  list-style-type: none;
+}
+#logo {
+  width: 75px;
+  border-radius: 10px;
+}
+.welcome {
+  color: azure;
+  text-align: center;
+}
+.card-Left {
+  text-align: center;
+  display: inline;
+  color: azure;
+}
+
+#cadastrar,
+#editar {
+  color: black;
+  background-color: rgb(167, 26, 26);
+  border-radius: 5px;
+  width: 75px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.card-Right {
+  display: inline;
+  text-align: center;
+  color: azure;
+}
+
+#editForm,
+#deleteForm {
+  display: inline;
+}
+
+#edit,
+#delete {
+  color: black;
+  background-color: rgb(167, 26, 26);
+  border-radius: 5px;
+  width: 75px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#sorteioDiv {
+  text-align: center;
+}
+
+#sorteio {
+  color: black;
+  background-color: rgb(209, 225, 62);
+  border-radius: 5px;
+  width: 75px;
+  height: 30px;
+  cursor: pointer;
+}

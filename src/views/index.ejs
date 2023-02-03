@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <title>Amigo Secreto</title>
+  </head>
+  <body>
+    <div class="welcome">
+      <span id="card-logo"
+        ><img id="logo" src="/images/logo.jpeg" alt="logo"
+      /></span>
+      <h1>Bem-vindo ao amigo secreto da BLACK ATS</h1>
+      <p>Cadastre-se abaixo</p>
+    </div>
+    <div class="card-Left">
+      <div>
+        <% if(edit == false){%>
+        <form action="/create" method="post">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" />
+          <label for="email">E-mail</label>
+          <input type="text" id="email" name="email" />
+          <button id="cadastrar" type="submit">Cadastrar</button>
+        </form>
+        <% } else { %>
+        <form action="/updateTask/<%=task._id%>" method="post">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" value="<%= task.nome%>" />
+          <label for="email">E-mail</label>
+          <input type="text" id="email" name="email" value="<%= task.email%>" />
+          <button id="editar" type="submit">Editar</button>
+        </form>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="card-Right">
+      <% if(Participantes != 0) {%>
+      <div>
+        <h1>Lista de Participantes</h1>
+      </div>
+      <% } %>
+
+      <div>
+        <ul>
+          <% tasksList.forEach((task) => { %>
+          <li>
+            <%= task.nome%> | <%= task.email %>
+
+            <form id="editForm" action="/getById/<%=task._id%>" method="get">
+              <input id="edit" type="submit" value="Editar" />
+            </form>
+            <form
+              id="deleteForm"
+              action="/deleteTask/<%=task._id%>"
+              method="get"
+            >
+              <input id="delete" type="submit" value="Deletar" />
+            </form>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+
+    <% if(Participantes%2 == 0 && Participantes != 0) {%>
+      <form id="sorteioDiv" action="/smtp" method="get">
+        <input id="sorteio" type="submit" value="Sortear" />
+      </form>
+    <% } %>
+
+    <script src="/js/index.js"></script>
+  </body>
+</html>
