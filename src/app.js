@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 
 //enable public folder for css, js, html files
 app.use(express.static("public"));
-
+//body-parse
 app.use(express.urlencoded({extended: true}));
 //enable json capabilities
 app.use(express.json());

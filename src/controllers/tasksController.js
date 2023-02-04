@@ -1,4 +1,3 @@
-//const { request, response } = require('express');
 const tasksModel = require("../models/tasksModel");
 const helper = require("../helpers/helper");
 
@@ -56,12 +55,12 @@ const updateTask = async (request, response) => {
 
 const sorteio = async (req, res) => {
   try {
+    res.redirect("/lista");
     const tasksList = await tasksModel.find();
     const counter = await tasksModel.count();
     const sortedArray = helper.shuffle(tasksList);
     await helper.linkarParticipantes(sortedArray, counter);
     await helper.sendAllEmails(sortedArray, counter);
-    res.redirect("/lista");
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
@@ -70,15 +69,11 @@ const sorteio = async (req, res) => {
 const lista = async (_req, res) => {
   try {
     const tasksList = await tasksModel.find();
-    //const counter = await tasksModel.count();
-
     res.render("final", { tasksList });
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
 };
-
-//********************************************************************* */
 
 module.exports = {
   getAll,
