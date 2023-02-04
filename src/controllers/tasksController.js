@@ -17,6 +17,7 @@ const createTask = async (request, response) => {
     await tasksModel.create(request.body);
     response.redirect("/");
   } catch (err) {
+    console.log(err);
     response.status(500).send({ error: err.message });
   }
 };
@@ -53,41 +54,31 @@ const updateTask = async (request, response) => {
   }
 };
 
-
 const sorteio = async (req, res) => {
   try {
     const tasksList = await tasksModel.find();
-    helper.shuffle(tasksList);  
-    helper.linkarParticipantes(tasksList);
-    res.redirect("/");
+    const counter = await tasksModel.count();
+    const sortedArray = helper.shuffle(tasksList);
+    await helper.linkarParticipantes(sortedArray, counter);
+    await helper.sendAllEmails(sortedArray, counter);
+    res.redirect("/lista");
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};
+
+const lista = async (_req, res) => {
+  try {
+    const tasksList = await tasksModel.find();
+    //const counter = await tasksModel.count();
+
+    res.render("final", { tasksList });
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
 };
 
 //********************************************************************* */
-
-const indexPage = async (_request, response) => {
-  response.render("index", { title: "Amigo Secreto" });
-};
-
-const logginPage = async (_request, response) => {
-  response.render("loggin", { title: "Log-in" });
-};
-
-const signupPage = async (_request, response) => {
-  response.render("signup", { title: "Sign-up" });
-};
-
-const createUser = async (request, response) => {
-  const createdUser = await tasksModel.createUser(request.body);
-  return response.status(201).json(createdUser);
-};
-
-const getUser = async (request, response) => {
-  const gotUser = await tasksModel.getUser(request.body);
-  return response.status(200).json(gotUser);
-};
 
 module.exports = {
   getAll,
@@ -96,9 +87,5 @@ module.exports = {
   deleteTask,
   updateTask,
   sorteio,
-  indexPage,
-  logginPage,
-  signupPage,
-  createUser,
-  getUser,
+  lista,
 };

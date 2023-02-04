@@ -3,14 +3,15 @@ const mongoose = require("mongoose");
 const taskSchema = new mongoose.Schema({
   nome: {
     type: String,
-    require: true,
+    required: true,
   },
   email: {
     type: String,
-    require: true,
+    required: true,
   },
   sorteado: {
-    type: String,
+    nome: { type: String, required: false},
+    email: { type: String, required: false },
   },
 });
 

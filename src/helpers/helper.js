@@ -1,28 +1,4 @@
-const nodemailer = require("nodemailer");
-const SMTP_CONFIG = require("../config/smtp");
-
-const transporter = nodemailer.createTransport({
-  host: SMTP_CONFIG.HOST,
-  port: SMTP_CONFIG.PORT,
-  secure: false,
-  auth: {
-    user: SMTP_CONFIG.USER,
-    pass: SMTP_CONFIG.PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
-});
-
-async function run(){
-  const mailSent = await transporter.sendMail({
-    text: "Texto do Email",
-    subject: "Assunto do Email",
-    from: "Henrique Lima <hmedeirosdelima@cedarville.edu>",
-    to: "henriquemlima@hotmail.com",    
-  })
-}
-//run();
+const smtp = require("../config/smtp");
 
 function shuffle(array) {
   let currentIndex = array.length,
@@ -41,9 +17,34 @@ function shuffle(array) {
   return array;
 }
 
-function linkarParticipantes(array) {
-
+async function linkarParticipantes(allDocs, counter) {
   
+  for (let i = 0; i < counter; i++) {
+    const current = allDocs.at(i);
+
+    if (i == counter - 1) {
+      current.sorteado = allDocs.at(0);
+      await current.save();
+    } else {
+      const next = allDocs.at(i + 1);
+      current.sorteado = next;
+      await current.save();
+    }
+  }
 }
 
-module.exports = { shuffle, linkarParticipantes };
+async function sendAllEmails(allDocs,counter) {
+  
+  for (let i = 0; i < counter; i++) {
+
+    const current = allDocs.at(i);
+
+    await smtp.transporter.sendMail({
+      text: "Segue as informacoes com relacao ao sorteio do amigo oculto, parabens voce tirou " + current.sorteado.nome,
+      subject: "Amigo Oculto Sorteio",
+      from: "Sorteio <mail.henriquemlima@gmail.com>",
+      to: current.email,
+    });
+  }
+}
+module.exports = { shuffle, linkarParticipantes, sendAllEmails };

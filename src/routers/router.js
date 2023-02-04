@@ -4,11 +4,12 @@ const tasksMiddleware = require("../middleware/tasksMiddleware");
 const router = express.Router();
 
 router.get("/", tasksController.getAll);
-router.post("/create", tasksMiddleware.validateName, tasksMiddleware.validateEmail, tasksController.createTask);
+router.post("/create", tasksController.createTask);
 router.get("/getById/:id", tasksController.getById);
-router.post("/updateTask/:id",  tasksMiddleware.validateName, tasksMiddleware.validateEmail, tasksController.updateTask);
+router.post("/updateTask/:id", tasksController.updateTask);
 router.get("/deleteTask/:id", tasksController.deleteTask);
 router.get("/smtp", tasksController.sorteio);
+router.get("/lista", tasksController.lista);
 
 /*
 router.get('/loggin', tasksController.logginPage);
