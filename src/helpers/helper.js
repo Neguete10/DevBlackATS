@@ -17,10 +17,12 @@ function shuffle(array) {
   return array;
 }
 
-async function linkarParticipantes(allDocs, counter) {
-  
+async function linkarParticipantes() {
+  const tasksList = await tasksModel.find();
+  const counter = await tasksModel.count();
+  let allDocs = tasksList;
+
   for (let i = 0; i < counter; i++) {
-    
     const current = allDocs.at(i);
 
     if (i == counter - 1) {
@@ -32,17 +34,16 @@ async function linkarParticipantes(allDocs, counter) {
       await current.save();
     }
   }
-  
 }
 
-async function sendAllEmails(allDocs,counter) {
-  
+async function sendAllEmails(allDocs, counter) {
   for (let i = 0; i < counter; i++) {
-    
     const current = allDocs.at(i);
 
     await smtp.transporter.sendMail({
-      text: "Segue as informacoes com relacao ao sorteio do amigo oculto, parabens voce tirou " + current.sorteado.nome,
+      text:
+        "Segue as informacoes com relacao ao sorteio do amigo oculto, parabens voce tirou " +
+        current.sorteado.nome,
       subject: "Amigo Oculto Sorteio",
       from: "Sorteio <mail.henriquemlima@gmail.com>",
       to: current.email,
