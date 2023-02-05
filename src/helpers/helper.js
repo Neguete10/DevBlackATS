@@ -1,5 +1,4 @@
 const smtp = require("../config/smtp");
-const tasksModel = require("../models/tasksModel");
 
 function shuffle(array) {
   let currentIndex = array.length,
@@ -18,19 +17,17 @@ function shuffle(array) {
   return array;
 }
 
-async function linkarParticipantes() {
-  //const tasksList = await tasksModel.find();
-  const counter = await tasksModel.count(); 
-
+async function linkarParticipantes(allDocs, counter) {
+  
   for (let i = 0; i < counter; i++) {
     
-    const current = (await tasksModel.find()).at(i);
+    const current = allDocs.at(i);
 
     if (i == counter - 1) {
-      current.sorteado = (await tasksModel.find()).at(0);
+      current.sorteado = allDocs.at(0);
       await current.save();
     } else {
-      const next = (await tasksModel.find()).at(i+1);
+      const next = allDocs.at(i+1);
       current.sorteado = next;
       await current.save();
     }
