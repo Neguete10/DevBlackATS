@@ -1,5 +1,5 @@
 #                                  #
-#   DevBlackATS - Teste Tecnico    #
+#   DevBlackATS - Teste Técnico    #
 #                                  #
 
 Desafio:
@@ -38,7 +38,7 @@ $sudo apt-get npm
 $npm i
 $npm start
 
-ESTE PROJETO TAMBEM ESTA DISPONIVEL NA INTERNET NO LINK:
+ESTE PROJETO TAMBÉM ESTÁ DISPONÍVEL NA INTERNET NO LINK:
 
 henriquemlima.com
 
