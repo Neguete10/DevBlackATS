@@ -12,9 +12,9 @@
     <div class="container">
       <div class="card">
         <h1>Resultado do Sorteio</h1>
-        <ul>
+        <ul class="centerUL">
           <% tasksList.forEach((task) => { %>
-          <li><%= task.nome%> <===> <%= task.sorteado.nome %></li>
+          <li><%= task.nome%> &rarr; <%= task.sorteado.nome %></li>
           <% }) %>
         </ul>
 

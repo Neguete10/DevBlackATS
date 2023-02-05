@@ -9,93 +9,100 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body>
-    <div class="welcome">
-      <span id="card-logo"
-        ><img id="logo" src="/images/logo.jpeg" alt="logo"
-      /></span>
-      <h1>Bem-vindo ao amigo secreto da BLACK ATS</h1>
-      <p>Coloque os seus dados abaixo e depois clique em CADASTRAR</p>
-    </div>
-    <div class="card-Left">
-      <div>
-        <% if(edit == false){%>
-        <form
-          action="/create"
-          method="post"
-          name="form1"
-          onsubmit="return validate()"
-        >
-          <label id="nomeLabel1" for="nome">Nome</label>
-          <input type="text" id="nome1" name="nome" required />
-          <label id="emailLabel1" for="email">E-mail</label>
-          <input type="text" id="email1" name="email" required />
-          <button id="cadastrar" type="submit">Cadastrar</button>
-        </form>
-        <% } else { %>
-        <form
-          action="/updateTask/<%=task._id%>"
-          method="post"
-          name="form2"
-          onsubmit="return validate2()"
-        >
-          <label id="nomeLabel" for="nome">Nome</label>
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            value="<%= task.nome%>"
-            required
-          />
-          <label id="emailLabel" for="email">E-mail</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            value="<%= task.email%>"
-            required
-          />
-          <button id="editar" type="submit">Editar</button>
+    <div class="main-container">
+      <div class="main-card">
+        <div class="welcome">
+          <span id="card-logo"
+            ><img id="logo" src="/images/logo.jpeg" alt="logo"
+          /></span>
+          <h1>Bem-vindo ao amigo secreto da BLACK ATS</h1>
+          <p>Coloque os seus dados abaixo e depois clique em CADASTRAR</p>
+        </div>
+        <div class="card-Left">
+          <div>
+            <% if(edit == false){%>
+            <form
+              action="/create"
+              method="post"
+              name="form1"
+              onsubmit="return validate()"
+            >
+              <label id="nomeLabel1" for="nome">Nome</label>
+              <input type="text" id="nome1" name="nome" required />
+              <label id="emailLabel1" for="email">E-mail</label>
+              <input type="text" id="email1" name="email" required />
+              <button id="cadastrar" type="submit">Cadastrar</button>
+            </form>
+            <% } else { %>
+            <form
+              action="/updateTask/<%=task._id%>"
+              method="post"
+              name="form2"
+              onsubmit="return validate2()"
+            >
+              <label id="nomeLabel" for="nome">Nome</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                value="<%= task.nome%>"
+                required
+              />
+              <label id="emailLabel" for="email">E-mail</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                value="<%= task.email%>"
+                required
+              />
+              <button id="editar" type="submit">Editar</button>
+            </form>
+            <% } %>
+          </div>
+        </div>
+
+        <div class="card-Right">
+          <% if(Participantes != 0) {%>
+          <div>
+            <h1>Lista de Participantes</h1>
+            <p>(É necessário um número par de amigos!)</p>
+          </div>
+          <% } %>
+
+          <div>
+            <ul class="centerUL">
+              <% tasksList.forEach((task) => { %>
+              <li>
+                <%= task.nome%> | <%= task.email %>
+
+                <form
+                  id="editForm"
+                  action="/getById/<%=task._id%>"
+                  method="get"
+                >
+                  <input id="edit" type="submit" value="Editar" />
+                </form>
+                <form
+                  id="deleteForm"
+                  action="/deleteTask/<%=task._id%>"
+                  method="get"
+                >
+                  <input id="delete" type="submit" value="Deletar" />
+                </form>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+
+        <% if(Participantes%2 == 0 && Participantes != 0) {%>
+        <form id="sorteioDiv" action="/smtp" method="get">
+          <input id="sorteio" type="submit" value="Sortear" />
         </form>
         <% } %>
       </div>
     </div>
-
-    <div class="card-Right">
-      <% if(Participantes != 0) {%>
-      <div>
-        <h1>Lista de Participantes</h1>
-        <p>(É necessário um número par de amigos!)</p>
-      </div>
-      <% } %>
-
-      <div>
-        <ul>
-          <% tasksList.forEach((task) => { %>
-          <li>
-            <%= task.nome%> | <%= task.email %>
-
-            <form id="editForm" action="/getById/<%=task._id%>" method="get">
-              <input id="edit" type="submit" value="Editar" />
-            </form>
-            <form
-              id="deleteForm"
-              action="/deleteTask/<%=task._id%>"
-              method="get"
-            >
-              <input id="delete" type="submit" value="Deletar" />
-            </form>
-          </li>
-          <% }) %>
-        </ul>
-      </div>
-    </div>
-
-    <% if(Participantes%2 == 0 && Participantes != 0) {%>
-    <form id="sorteioDiv" action="/smtp" method="get">
-      <input id="sorteio" type="submit" value="Sortear" />
-    </form>
-    <% } %>
-
     <script src="/js/index.js"></script>
   </body>
 </html>

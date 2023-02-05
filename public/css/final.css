@@ -42,3 +42,8 @@ ul {
   height: 40px;
   cursor: pointer;
 }
+
+.centerUL{
+  display: inline;
+  text-align: center;
+}
