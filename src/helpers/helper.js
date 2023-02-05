@@ -38,7 +38,7 @@ async function linkarParticipantes(allDocs, counter) {
 async function sendAllEmails(allDocs,counter) {
   
   for (let i = 0; i < counter; i++) {
-    console.log("aqui!");
+    
     const current = allDocs.at(i);
 
     await smtp.transporter.sendMail({

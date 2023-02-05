@@ -59,7 +59,7 @@ const sorteio = async (req, res) => {
     const counter = await tasksModel.count();
     const sortedArray = helper.shuffle(tasksList);
     await helper.linkarParticipantes(sortedArray, counter);
-    await helper.sendAllEmails(sortedArray, counter);
+    //await helper.sendAllEmails(sortedArray, counter);
     res.redirect("/lista");
   } catch (err) {
     res.status(500).send({ error: err.message });
