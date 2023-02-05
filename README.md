@@ -36,11 +36,11 @@ Criar um sisteminha simples de amigo secreto com cadastro de pessoas (CRUD compl
 
 ### Para executar o projeto localmente (Linux-Debian) :
 
-$sudo apt-get update
-$sudo apt-get upgrade
-$sudo apt-get npm
-$npm i
-$npm start
+`code` sudo apt-get update
+`code` sudo apt-get upgrade
+`code` sudo apt-get npm
+`code` npm i
+`code` npm start
 
 ---
 
