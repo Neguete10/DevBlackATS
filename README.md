@@ -1,36 +1,40 @@
-#                                  #
-#   DevBlackATS - Teste Técnico    #
-#                                  #
+# Vaga Dev Black ATS - Teste Técnico
 
-Desafio:
+<img src="https://lh4.googleusercontent.com/ka6dUMVWOjpdb-znxYAaukJUxaQHlPkhzvcq0mzAuiuL2XZm9mFm3S1qKRa9KdeqALKZvXMh_n-XSCwaAm9LH_Xz42sw1jYbu6oPnNA_7uf-WJx3RSINhMQgW09i9HYRlMMvfTxG"  width="800" height="350">
+
+> Status: Finalizado ✅
+
+
+## Desafio :
 
 Criar um sisteminha simples de amigo secreto com cadastro de pessoas (CRUD completo) contendo nome e email apenas. Além do cadastro criar um botão para realizar o sorteio. Ao realizar o sorteio um email é enviado dizendo para a pessoa quem ela deve presentear.
 
-Pré requisitos:
+---
 
-1. use nodejs para o backend e algum framework web ou mobile para o frontend (angular ou react)
+### Pré-requisitos :
 
-2. armazene os dados no mongodb
+1. Use nodejs para o backend e algum framework web ou mobile para o frontend (angular ou react)
 
-3. use algum smtp free para o envio do email (https://ethereal.email, emailjs.com ou algo do tipo)
+2. Armazene os dados no mongodb
 
-4. coloque o código num repositório git
+3. Use algum smtp free para o envio do email (https://ethereal.email, emailjs.com ou algo do tipo)
 
+4. Coloque o código num repositório git
 
-***************************************************
-Ferramentas Utilizadas:
+---
+## Ferramentas Utilizadas :
 
-Front-End: HTML5, CSS3, Javascript.
+- Front-End: HTML5, CSS3, Javascript.
 
-Back-End: NodeJS, Express, Dotenv, EJS, Mongoose, Nodemailer, Nodemon, NGINX (reverse-proxy).
+- Back-End: NodeJS, Express, Dotenv, EJS, Mongoose, Nodemailer, Nodemon, NGINX (reverse-proxy).
 
-Cloud-Database: MongoDB Atlas.
+- Cloud-Database: MongoDB Atlas.
 
-Cloud-Deploy: AWS - EC2, Route 53.
+- Cloud-Deploy: AWS - EC2, Route 53.
 
-***************************************************
+---
 
-PARA EXECUTAR O PROJETO LOCALMENTE (Linux-Debian):
+## Para executar o projeto localmente (Linux-Debian) :
 
 $sudo apt-get update
 $sudo apt-get upgrade
@@ -38,7 +42,9 @@ $sudo apt-get npm
 $npm i
 $npm start
 
-ESTE PROJETO TAMBÉM ESTÁ DISPONÍVEL NA INTERNET NO LINK:
+---
 
-henriquemlima.com
+## Este projeto tambem esta disponivel na internet no link :
+
+http://henriquemlima.com
 
