@@ -19,18 +19,18 @@ function shuffle(array) {
 }
 
 async function linkarParticipantes() {
-  const tasksList = await tasksModel.find();
-  const counter = await tasksModel.count();
-  let allDocs = tasksList;
+  //const tasksList = await tasksModel.find();
+  const counter = await tasksModel.count(); 
 
   for (let i = 0; i < counter; i++) {
-    const current = allDocs.at(i);
+    
+    const current = (await tasksModel.find()).at(i);
 
     if (i == counter - 1) {
-      current.sorteado = allDocs.at(0);
+      current.sorteado = (await tasksModel.find()).at(0);
       await current.save();
     } else {
-      const next = allDocs.at(i + 1);
+      const next = (await tasksModel.find()).at(i+1);
       current.sorteado = next;
       await current.save();
     }
