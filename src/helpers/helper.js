@@ -40,7 +40,7 @@ async function sendAllEmails(allDocs, counter) {
 
     await smtp.transporter.sendMail({
       text:
-        "Parabéns. O seu amigo oculto é " + current.sorteado.nome + " obrigado por participar!",
+        "Parabéns. O seu amigo oculto é " + current.sorteado.nome + ". Obrigado por participar!",
       subject: "Sorteio de participantes.",
       from: "Amigo Oculto - BlackATS <mail.henriquemlima@gmail.com>",
       to: current.email,
