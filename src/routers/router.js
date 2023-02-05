@@ -9,5 +9,6 @@ router.post("/updateTask/:id", tasksController.updateTask);
 router.get("/deleteTask/:id", tasksController.deleteTask);
 router.get("/smtp", tasksController.sorteio);
 router.get("/lista", tasksController.lista);
+router.get("/novoSorteio", tasksController.novoSorteio);
 
 module.exports = router;

@@ -79,6 +79,15 @@ const lista = async (_req, res) => {
   }
 };
 
+const novoSorteio = async (_req, res) => {
+  try {
+    await tasksModel.deleteMany({});
+    res.redirect("/");
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};
+
 module.exports = {
   getAll,
   createTask,
@@ -87,4 +96,5 @@ module.exports = {
   updateTask,
   sorteio,
   lista,
+  novoSorteio,
 };
