@@ -21,13 +21,13 @@ async function linkarParticipantes(allDocs, counter) {
   
   for (let i = 0; i < counter; i++) {
     
-    const current = allDocs.at(i);
+    const current = allDocs[i];
 
     if (i == counter - 1) {
-      current.sorteado = allDocs.at(0);
+      current.sorteado = allDocs[0];
       await current.save();
     } else {
-      const next = allDocs.at(i+1);
+      const next = allDocs[i+1];
       current.sorteado = next;
       await current.save();
     }
@@ -36,7 +36,7 @@ async function linkarParticipantes(allDocs, counter) {
 
 async function sendAllEmails(allDocs, counter) {
   for (let i = 0; i < counter; i++) {
-    const current = allDocs.at(i);
+    const current = allDocs[i];
 
     await smtp.transporter.sendMail({
       text:
