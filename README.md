@@ -17,12 +17,12 @@ Criar um sisteminha simples de amigo secreto com cadastro de pessoas (CRUD compl
 
 2. Armazene os dados no mongodb
 
-3. Use algum smtp free para o envio do email (https://ethereal.email, emailjs.com ou algo do tipo)
+3. Use algum smtp free para o envio do email (ethereal.email, emailjs.com ou algo do tipo)
 
 4. Coloque o código num repositório git
 
 ---
-## Ferramentas Utilizadas :
+### Ferramentas Utilizadas :
 
 - Front-End: HTML5, CSS3, Javascript.
 
@@ -34,7 +34,7 @@ Criar um sisteminha simples de amigo secreto com cadastro de pessoas (CRUD compl
 
 ---
 
-## Para executar o projeto localmente (Linux-Debian) :
+### Para executar o projeto localmente (Linux-Debian) :
 
 $sudo apt-get update
 $sudo apt-get upgrade
@@ -44,7 +44,7 @@ $npm start
 
 ---
 
-## Este projeto tambem esta disponivel na internet no link :
+### Este projeto tambem esta disponivel na internet no link :
 
 http://henriquemlima.com
 
