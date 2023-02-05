@@ -46,6 +46,6 @@ $npm start
 
 ### Este projeto também está disponível na internet no link :
 
-<a href="http://henriquemlima.com/" target="_blank">henriquemlima.com</a>
+<a href="http://henriquemlima.com/" target="_blank">http://henriquemlima.com</a>
 
 
