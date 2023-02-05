@@ -15,8 +15,9 @@
           <span id="card-logo"
             ><img id="logo" src="/images/logo.jpeg" alt="logo"
           /></span>
-          <h1>Bem-vindo ao amigo secreto da BLACK ATS</h1>
-          <p>Coloque os seus dados abaixo e depois clique em CADASTRAR</p>
+          <h1>Bem-vindo ao amigo secreto da BLACK ATS</h1>          
+          <p style="padding: 15px;">Coloque os seus dados abaixo e depois clique em CADASTRAR</p>
+          <br>
         </div>
         <div class="card-Left">
           <div>
@@ -66,14 +67,14 @@
           <% if(Participantes != 0) {%>
           <div>
             <h1>Lista de Participantes</h1>
-            <p>(É necessário um número par de amigos!)</p>
+            <p>(É necessário um número par de amigos para dar início ao sorteio!)</p>
           </div>
           <% } %>
 
           <div>
             <ul class="centerUL">
               <% tasksList.forEach((task) => { %>
-              <li>
+              <li style="padding: 7px;">
                 <%= task.nome%> | <%= task.email %>
 
                 <form
