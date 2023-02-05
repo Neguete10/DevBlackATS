@@ -5,24 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/final.css" />
-    <title>Relacao de Pessoas</title>
+    <title>Amigo Secreto</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   </head>
   <body>
     <div class="container">
       <div class="card">
-        <h1>Relacao de Participantes</h1>
+        <h1>Resultado do Sorteio</h1>
         <ul>
           <% tasksList.forEach((task) => { %>
           <li>
-            <%= task.nome%> | seu amigo secreto e -> <%= task.sorteado.nome %>
+            <%= task.nome%> <===> <%= task.sorteado.nome %>
           </li>
           <% }) %>
         </ul>
 
-        <h2>Todos os emails foram enviados com sucesso!</h2>
+        <h2>Os e-mails de confirmação foram encaminhados aos participantes.</h2>
         <img class="mark" src="images/checkmark.gif" alt="checkmark" />
        <br>
-        <a href="/"><button id="pageInit">Pagina Inicial</button></a>
+        <a href="/"><button id="pageInit">Página Inicial</button></a>
       </div>
     </div>
   </body>
