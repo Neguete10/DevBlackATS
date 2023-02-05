@@ -20,6 +20,7 @@ function shuffle(array) {
 async function linkarParticipantes(allDocs, counter) {
   
   for (let i = 0; i < counter; i++) {
+    console.log("aqui!");
     const current = allDocs.at(i);
 
     if (i == counter - 1) {
