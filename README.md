@@ -44,7 +44,7 @@ $npm start
 
 ---
 
-### Este projeto tambem esta disponivel na internet no link :
+### Este projeto também está disponível na internet no link :
 
 http://henriquemlima.com
 
