@@ -15,9 +15,11 @@
           <span id="card-logo"
             ><img id="logo" src="/images/logo.jpeg" alt="logo"
           /></span>
-          <h1>Bem-vindo ao amigo secreto da BLACK ATS</h1>          
-          <p style="padding: 15px;">Coloque os seus dados abaixo e depois clique em CADASTRAR</p>
-          <br>
+          <h1>Bem-vindo ao amigo secreto da BLACK ATS</h1>
+          <p style="padding: 15px">
+            Coloque os seus dados abaixo e depois clique em CADASTRAR
+          </p>
+          <br />
         </div>
         <div class="card-Left">
           <div>
@@ -30,9 +32,13 @@
             >
               <label id="nomeLabel1" for="nome">Nome</label>
               <input type="text" id="nome1" name="nome" required />
-              <label id="emailLabel1" for="email">E-mail</label>
+              <label style="padding-left: 15px" id="emailLabel1" for="email"
+                >E-mail</label
+              >
               <input type="text" id="email1" name="email" required />
-              <button id="cadastrar" type="submit">Cadastrar</button>
+              <button style="margin-left: 15px" id="cadastrar" type="submit">
+                Cadastrar
+              </button>
             </form>
             <% } else { %>
             <form
@@ -49,7 +55,9 @@
                 value="<%= task.nome%>"
                 required
               />
-              <label id="emailLabel" for="email">E-mail</label>
+              <label style="padding-left: 15px" id="emailLabel" for="email"
+                >E-mail</label
+              >
               <input
                 type="text"
                 id="email"
@@ -57,7 +65,9 @@
                 value="<%= task.email%>"
                 required
               />
-              <button id="editar" type="submit">Editar</button>
+              <button style="margin-left: 15px" id="editar" type="submit">
+                Editar
+              </button>
             </form>
             <% } %>
           </div>
@@ -67,14 +77,16 @@
           <% if(Participantes != 0) {%>
           <div>
             <h1>Lista de Participantes</h1>
-            <p>(É necessário um número par de amigos para dar início ao sorteio!)</p>
+            <p>
+              (É necessário um número par de amigos para dar início ao sorteio!)
+            </p>
           </div>
           <% } %>
 
           <div>
             <ul class="centerUL">
               <% tasksList.forEach((task) => { %>
-              <li style="padding: 7px;">
+              <li style="padding: 7px">
                 <%= task.nome%> | <%= task.email %>
 
                 <form
@@ -82,14 +94,24 @@
                   action="/getById/<%=task._id%>"
                   method="get"
                 >
-                  <input id="edit" type="submit" value="Editar" />
+                  <input
+                    style="margin-left: 10px"
+                    id="edit"
+                    type="submit"
+                    value="Editar"
+                  />
                 </form>
                 <form
                   id="deleteForm"
                   action="/deleteTask/<%=task._id%>"
                   method="get"
                 >
-                  <input id="delete" type="submit" value="Deletar" />
+                  <input
+                    style="margin-left: 10px"
+                    id="delete"
+                    type="submit"
+                    value="Deletar"
+                  />
                 </form>
               </li>
               <% }) %>
@@ -104,6 +126,7 @@
         <% } %>
       </div>
     </div>
+
     <script src="/js/index.js"></script>
   </body>
 </html>

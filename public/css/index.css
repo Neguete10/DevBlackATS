@@ -7,23 +7,21 @@ ul {
   list-style-type: none;
 }
 
-.main-container{
+.main-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
-.main-card{
+.main-card {
   text-align: center;
   display: inline;
   color: azure;
   background-color: black;
-  opacity: 0.8;
   border-radius: 15px;
   padding: 25px;
 }
-
 
 #logo {
   width: 75px;
@@ -41,7 +39,7 @@ ul {
 
 #cadastrar,
 #editar {
-  color: black;
+  color: azure;
   background-color: rgb(167, 26, 26);
   border-radius: 5px;
   width: 75px;
@@ -62,7 +60,7 @@ ul {
 
 #edit,
 #delete {
-  color: black;
+  color: azure;
   background-color: rgb(167, 26, 26);
   border-radius: 5px;
   width: 75px;
@@ -83,7 +81,8 @@ ul {
   cursor: pointer;
 }
 
-.centerUL{
+.centerUL {
   display: inline-block;
   text-align: right;
 }
+
