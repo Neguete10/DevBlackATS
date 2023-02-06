@@ -38,9 +38,11 @@ Criar um sisteminha simples de amigo secreto com cadastro de pessoas (CRUD compl
 
 1. `code` sudo apt-get update
 2. `code` sudo apt-get upgrade
-3. `code` sudo apt-get npm
-4. `code` npm i
-5. `code` npm start
+3. `code` sudo apt-get install npm
+4. `code` git clone https://github.com/Neguete10/DevBlackATS/
+5. `code` cd DevBlackATS
+6. `code` npm i
+7. `code` npm start
 
 ---
 
