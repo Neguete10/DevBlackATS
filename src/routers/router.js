@@ -11,4 +11,9 @@ router.get("/smtp", tasksController.sorteio);
 router.get("/lista", tasksController.lista);
 router.get("/novoSorteio", tasksController.novoSorteio);
 
+//Error handler
+router.get("*", tasksController.error);
+router.post("*", tasksController.error);
+
+
 module.exports = router;

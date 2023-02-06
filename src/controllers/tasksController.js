@@ -55,16 +55,12 @@ const updateTask = async (request, response) => {
 
 const sorteio = async (req, res) => {
   try {
-    res.redirect("/lista"); 
-    //res.render("final", { tasksList });
+    res.redirect("/lista");
     const tasksList = await tasksModel.find();
     const counter = await tasksModel.count();
     const sortedArray = helper.shuffle(tasksList);
     await helper.linkarParticipantes(sortedArray, counter);
     await helper.sendAllEmails(sortedArray, counter);
-    
-    //res.redirect("/lista");    
-    
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
@@ -88,6 +84,10 @@ const novoSorteio = async (_req, res) => {
   }
 };
 
+const error = async (_req, res) => {
+  res.redirect("/");
+};
+
 module.exports = {
   getAll,
   createTask,
@@ -97,4 +97,5 @@ module.exports = {
   sorteio,
   lista,
   novoSorteio,
+  error,
 };
