@@ -5,24 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/final.css" />
-    <title>Amigo Secreto</title>
+    <title>Secret Santa</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body>
     <div class="container">
       <div class="card">
-        <h1>Resultado do Sorteio</h1>
+        <h1>Drawing Results</h1>
         <ul class="centerUL">
           <% tasksList.forEach((task) => { %>
           <li><%= task.nome%> &rarr; <%= task.sorteado.nome %></li>
           <% }) %>
         </ul>
 
-        <h2>Os e-mails de confirmação foram encaminhados aos participantes.</h2>
+        <h2>All e-mails of confirmation have been sent to the participants</h2>
         <img class="mark" src="images/checkmark.gif" alt="checkmark" />
         <br />
-        <a href="/novoSorteio"><button id="pageInit">Novo Sorteio</button></a>
-        <a href="/"><button id="pageInit">Página Inicial</button></a>
+        <a href="/novoSorteio"><button id="pageInit">New Drawing</button></a>
+        <a href="/"><button id="pageInit">Home Page</button></a>
       </div>
     </div>
   </body>

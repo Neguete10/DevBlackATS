@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/index.css" />
-    <title>Amigo Secreto</title>
+    <title>Secret Santa</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body>
@@ -15,9 +15,9 @@
           <span id="card-logo"
             ><img id="logo" src="/images/logo.jpeg" alt="logo"
           /></span>
-          <h1>Bem-vindo ao amigo secreto da BLACK ATS</h1>
+          <h1>Welcome to the Secret Santa App</h1>
           <p style="padding: 15px">
-            Coloque os seus dados abaixo e depois clique em CADASTRAR
+            Fill out the form below and then click on REGISTER
           </p>
           <br />
         </div>
@@ -37,7 +37,7 @@
               >
               <input type="text" id="email1" name="email" required />
               <button style="margin-left: 15px" id="cadastrar" type="submit">
-                Cadastrar
+                Register
               </button>
             </form>
             <% } else { %>
@@ -66,7 +66,7 @@
                 required
               />
               <button style="margin-left: 15px" id="editar" type="submit">
-                Editar
+                Edit
               </button>
             </form>
             <% } %>
@@ -76,10 +76,7 @@
         <div class="card-Right">
           <% if(Participantes != 0) {%>
           <div>
-            <h1>Lista de Participantes</h1>
-            <p>
-              (É necessário um número par de amigos para dar início ao sorteio!)
-            </p>
+            <h1>List of Participants</h1>    
           </div>
           <% } %>
 
@@ -98,7 +95,7 @@
                     style="margin-left: 10px"
                     id="edit"
                     type="submit"
-                    value="Editar"
+                    value="Edit"
                   />
                 </form>
                 <form
@@ -110,7 +107,7 @@
                     style="margin-left: 10px"
                     id="delete"
                     type="submit"
-                    value="Deletar"
+                    value="Delete"
                   />
                 </form>
               </li>
@@ -119,9 +116,9 @@
           </div>
         </div>
 
-        <% if(Participantes%2 == 0 && Participantes != 0) {%>
+        <% if(Participantes != 0) {%>
         <form id="sorteioDiv" action="/smtp" method="get">
-          <input id="sorteio" type="submit" value="Sortear" />
+          <input id="sorteio" type="submit" value="Draw" />
         </form>
         <% } %>
       </div>
